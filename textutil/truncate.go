@@ -1,7 +1,7 @@
 // Package textutil has small string helpers.
 package textutil
 
-// Truncate shortens s to at most n characters, adding "…" when it cuts.
+// Truncate shortens s to at most n runes (Unicode code points, not bytes), adding "…" when it cuts.
 func Truncate(s string, n int) string {
 	r := []rune(s)
 	if n <= 0 {
