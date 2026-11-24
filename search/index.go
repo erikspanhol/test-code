@@ -42,7 +42,7 @@ func (ix *Index) Len() int {
 // Search returns the IDs of documents containing every word of the query,
 // best match first. Matching is case-insensitive.
 func (ix *Index) Search(query string) []string {
-	words := strings.Fields(query)
+	words := strings.Fields(strings.ToLower(query))
 	if len(words) == 0 {
 		return nil
 	}
