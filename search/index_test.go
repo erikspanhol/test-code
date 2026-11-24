@@ -29,6 +29,14 @@ func TestSearchAllWordsMustMatch(t *testing.T) {
 	}
 }
 
+func TestSearchIsCaseInsensitive(t *testing.T) {
+	got := sample().Search("Apple")
+	want := []string{"a", "b"}
+	if !reflect.DeepEqual(got, want) {
+		t.Fatalf("Search(Apple) = %v, want %v", got, want)
+	}
+}
+
 func TestSearchEmptyQuery(t *testing.T) {
 	if got := sample().Search("   "); got != nil {
 		t.Fatalf("empty query returned %v", got)
